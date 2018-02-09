@@ -1,0 +1,48 @@
+
+public class HallForSession {
+	private final int[][] hall;
+
+	public HallForSession() {
+		int[][] hall = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+		this.hall = hall;
+	}
+
+	public void placesCinema() {
+		for (int i = 0; i < hall.length; i++) {
+			for (int j = 0; j < hall.length; j++) {
+				System.out.print(hall[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	public void buyTiket(int row, int place) {
+		if (this.hall[row - 1][place - 1] == 1)
+			throw new IllegalArgumentException("Вказане місце вже заброньоване!");
+		this.hall[row - 1][place - 1] = 1;
+	}
+
+	public int countEmptyPlaces() {
+		int emptyPlaces = 0;
+		for (int i = 0; i < hall.length; i++) {
+			for (int j = 0; j < hall.length; j++) {
+				if (hall[i][j] == 0) {
+					emptyPlaces++;
+				}
+			}
+		}
+		return emptyPlaces;
+	}
+
+	public int countBoughtPlaces() {
+		int boughtPlases = 0;
+		for (int i = 0; i < hall.length; i++) {
+			for (int j = 0; j < hall.length; j++) {
+				if (hall[i][j] == 1) {
+					boughtPlases++;
+				}
+			}
+		}
+		return boughtPlases;
+	}
+}
