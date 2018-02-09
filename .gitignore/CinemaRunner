@@ -1,0 +1,17 @@
+public class CinemaRunner {
+	public static void main(String[] args) {
+
+		Movie It = new Movie("Воно", "2017", "135 хвилин",
+				"Події розгортаються в провінційному містечку Дері.\rРік тому тут відбулося страшне вбивство дитини.\rСтарший брат загиблого хлопчика разом зі своїми друзями вирішують самостійно знайти вбивцю.\rКожна дитина окремо зіштовхується зі злом, протистояти якому досить складно.\rІ чим більше ти його боїшся, тим Воно сильніше.\rНайчастіше зло можна побачити в образі клоуна на ім'я Пеннівайз.");
+
+		MovieSession Session = new MovieSession(It, "16:00");
+
+		Session.buyTiket(1, 2);
+		Session.buyTiket(3, 2);
+		Session.buyTiket(1, 4);
+		Session.buyTiket(3, 4);
+		Session.buyTiket(4, 4);
+
+		Session.infoMovieSession();
+	}
+}
