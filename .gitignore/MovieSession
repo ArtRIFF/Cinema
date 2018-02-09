@@ -1,0 +1,27 @@
+
+public class MovieSession {
+	private final int tiketPrice = 64;
+	private final Movie Movie;
+	private final HallForSession hallForSession = new HallForSession();
+	private final String beginTime;
+
+	public MovieSession(Movie Movie, String beginTime) {
+		this.Movie = Movie;
+		this.beginTime = beginTime;
+	}
+
+	public void buyTiket(int row, int place) {
+		this.hallForSession.buyTiket(row, place);
+	}
+
+	public void infoMovieSession() {
+		int boxOffice = this.tiketPrice * this.hallForSession.countBoughtPlaces();
+		Movie.getInfo();
+		System.out.println("\rЦіна квитка:" + tiketPrice + "грн." + "\rПочаток сеанса о " + beginTime);
+		System.out.println("Кількість вільних місць-" + hallForSession.countEmptyPlaces()
+				+ "; Кількість заброньованих місць-" + hallForSession.countBoughtPlaces());
+		System.out.println("Схема розташування місць(1-заброньоване місце,0-вільне місце)");
+		hallForSession.placesCinema();
+		System.out.println("Касові збори:" + boxOffice + "грн.");
+	}
+}
